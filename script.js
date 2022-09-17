@@ -8,6 +8,8 @@ function getNumberOrString(value) {
   }
 }
 
+
+
 document.getElementById('button').addEventListener('click', (event) => {
   let element_text = document.getElementById('text');
   window.speechSynthesis.speak(new SpeechSynthesisUtterance(getNumberOrString(document.getElementById('text').value)));
@@ -23,6 +25,9 @@ function getNumberOrString(value) {
     return number_value
   }
 }
+
+
+
 document.getElementById('button').addEventListener('click', (event) => {
   let element_list = document.getElementById('list');
   let new_li = document.createElement('li');
