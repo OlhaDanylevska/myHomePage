@@ -1,37 +1,23 @@
-var array, images_next;
-
-function randomInt(n) {
-  // Return a random number from in [0, n[
-  return Math.floor(Math.random()*n);
-}
-
-function randomMember(arr) {
-  // Return a random member of the array
-  return arr[randomInt(arr.length)]
-}
+var images, text;
 
 
-array = ['https://is2-ssl.mzstatic.com/image/thumb/Purple60/v4/24/cb/5b/24cb5b0c-3563-0d49-10be-54ce67ee7b25/source/256x256bb.jpg', 'https://b.thumbs.redditmedia.com/6qT0Layv6DvETeSGVGNORPzRweGgJZFJ8VJfQJW-xZk.png', 'https://sane-science.org/img/love-nature.jpg'];
-let element_picture = document.getElementById('picture');
-array.push(array[0]);
-element_picture.setAttribute("src", array.shift());
+images = ['https://www.allaboutbirds.org/guide/assets/photo/308074031-480px.jpg', 'https://www.allaboutbirds.org/guide/assets/photo/66035101-480px.jpg', 'https://biologydictionary.net/wp-content/uploads/2020/08/european-turtle-dove-1.jpg'];
+text = ['Rock doves have a wide range of shades, but darker colours usually dominate their feathers. They are known as persistent pests in buildings in urban areas once their number grows.', 'Collared doves have pale pink and brown colours and a unique black collar on their neck. They also have slightly red feet and distinctive red eyes. They usually live alone, but it is not unusual to see them gathered in larger numbers.', 'The turtle dove has a unique size. It is smaller and also a little bit darker compared to the collared dove, but it is a little bit larger compared to blackbirds. The black and chestnut colour and pattern found on the wings make them easily recognisable. In recent times, the number of turtle doves has dropped.'];
 
 
-document.getElementById('button_pre').addEventListener('click', (event) => {
-  let element_picture2 = document.getElementById('picture');
-  array.unshift(array.slice(-1)[0]);
-  element_picture2.setAttribute("src", array.pop());
+document.getElementById('next').addEventListener('click', (event) => {
+  let element_space = document.getElementById('space');
+  element_space.replaceChildren();
+  let new_img = document.createElement('img');
+  new_img.setAttribute("src", images.shift());
+
+  element_space.appendChild(new_img);
+  let new_div = document.createElement('div');
+  new_div.innerText = text.shift();
+
+  element_space.appendChild(new_div);
 
 });
-
-document.getElementById('button_next').addEventListener('click', (event) => {
-  let element_picture3 = document.getElementById('picture');
-  array.push(array[0]);
-  element_picture3.setAttribute("src", array.shift());
-
-});
-randomMember(images_next);
-
 
 function getNumberOrString(value) {
   // Convert a string value to a number if possible
